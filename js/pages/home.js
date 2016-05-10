@@ -1,7 +1,9 @@
 import React, {PropTypes, Component} from 'react';
 export default class HomePage extends Component {
-    static propTypes = {};
+    static propTypes = {
+        title: PropTypes.string
+    };
     render() {
-        return <div>This Home Page</div>;
+        return <div ref="test">{this.props.title}</div>;
     }
 }
