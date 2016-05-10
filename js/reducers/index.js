@@ -1,4 +1,4 @@
-const reducer = (state) => state;
+const rootReducer = (state) => state;
 
-export default reducer;
+export default rootReducer;
 
