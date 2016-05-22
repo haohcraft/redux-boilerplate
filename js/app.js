@@ -25,7 +25,7 @@ if (module.hot) {
 
 render(
     <Provider store={store}>
-        <HomePage />
+        <HomePage title="good" />
     </Provider>,
     document.getElementById('app')
 );
