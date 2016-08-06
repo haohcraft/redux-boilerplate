@@ -2,6 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var precss = require('./postcss/precss');
 
 module.exports = function(options) {
   var entry, jsLoaders, plugins, cssLoaders;
@@ -10,9 +11,9 @@ module.exports = function(options) {
   if (options.prod) {
     // Entry
     entry = [
-      path.resolve(__dirname, 'js/app.js') // Start with js/app.js...
+      path.resolve(__dirname, 'scripts/app.js') // Start with js/app.js...
     ];
-    cssLoaders = ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader');
+    cssLoaders = ExtractTextPlugin.extract('style-loader', 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!postcss-loader');
     // Plugins
     plugins = [// Plugins for Webpack
       new webpack.optimize.UglifyJsPlugin({ // Optimize the JavaScript...
@@ -50,9 +51,9 @@ module.exports = function(options) {
     entry = [
       "webpack-dev-server/client?http://localhost:4000", // Needed for hot reloading
       "webpack/hot/only-dev-server", // See above
-      path.resolve(__dirname, 'js/app.js') // Start with js/app.js...
+      path.resolve(__dirname, 'scripts/app.js') // Start with js/app.js...
     ];
-    cssLoaders = 'style-loader!css-loader!postcss-loader';
+    cssLoaders = 'style-loader!css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!postcss-loader';
     // Only plugin is the hot module replacement plugin
     plugins = [
       new webpack.HotModuleReplacementPlugin(), // Make hot loading work
@@ -68,7 +69,7 @@ module.exports = function(options) {
     entry: entry,
     output: { // Compile into js/build.js
       path: path.resolve(__dirname, 'build'),
-      filename: "js/bundle.js"
+      filename: "scripts/bundle.js"
     },
     module: {
       loaders: [{
@@ -85,14 +86,19 @@ module.exports = function(options) {
       ]
     },
     resolve: {
-      modulesDirectories: ['node_modules', './js']
+      modulesDirectories: ['node_modules', './scripts']
     },
     plugins: plugins,
     postcss: function() {
       return [
-        require('precss'),
-        require('autoprefixer')({ // ...and add vendor prefixes...
-          browsers: ['last 2 versions', 'IE > 8'] // ...supporting the last 2 major browser versions and IE 8 and up...
+        precss({
+          url: {
+              url: "inline",
+              basePath: path.join(__dirname, "/")
+          },
+          autoprefixer: {
+            browsers: ['last 2 versions', 'IE > 8'] // ...supporting the last 2 major browser versions and IE 8 and up...
+          }
         })
       ];
     },

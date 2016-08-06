@@ -6,7 +6,6 @@ import thunk from 'redux-thunk';
 
 import HomePage from './pages/home';
 import rootReducer from './reducers';
-
 // Create the store with the redux-thunk middleware, which allows us
 // to do asynchronous things in the actions
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
