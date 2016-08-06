@@ -1,9 +1,11 @@
 # node_modules are ignored by default
 
+# Ignore PostCss
+precss.js
+
 # Ignore build folder
 build
 
 # Ignore config stuff
 server.js
 *.config.js
-makewebpackconfig.js

@@ -16,8 +16,8 @@ var processors = [
         defaults: {}
     },
     {
-        plugin:    require('postcss-url'),
-        namespace: 'url',
+        plugin:    require('postcss-assets'),
+        namespace: 'assets',
         defaults:  {}
     },
     {

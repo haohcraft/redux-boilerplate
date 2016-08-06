@@ -4,6 +4,7 @@
   "description": "code for reserve",
   "scripts": {
     "start": "NODE_ENV=development node server.js",
+    "build": "rm -rf build && NODE_ENV=production webpack --progress --colors",
     "lint": "./node_modules/.bin/eslint ."
   },
   "author": "Hao Huang",
