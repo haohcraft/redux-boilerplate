@@ -1,15 +1,20 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import style from './style.css';
 
-@CSSModules(style)
-export default class Header extends Component {
-    static propTypes = {
-        title: PropTypes.string
-    };
-    render() {
-        return <div styleName="Header">
-            good
-        </div>;
-    }
-}
+import Overlay from 'components/overlay';
+
+const Header = (props) => (<div styleName="header">
+    <Overlay />
+    <div styleName="title">
+        <Overlay />
+        <div styleName="title-content">Book a Reservation</div>
+    </div>
+    <div styleName="name">{props.name}</div>
+</div>);
+
+Header.propTypes = {
+    name: PropTypes.string.isRequired
+};
+
+export default CSSModules(style)(Header);

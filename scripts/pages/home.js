@@ -6,7 +6,7 @@ export default class HomePage extends Component {
     };
     render() {
         return <div ref="test">
-            <Header />
+            <Header name="Café Reserve" />
         </div>;
     }
 }

@@ -1,4 +1,38 @@
+$headerHeight: 315px;
+$titleHeight: 65px;
 
-.Header {
-    color: $red;
+.header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: $headerHeight;
+    color: white;
+    background-image: url('images/restaurant-inside.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+.title {
+    position: relative;
+    top: 0px;
+    width: 100%;
+    height: $titleHeight;
+
+    &-content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        font-size: 20px;
+        text-align: center;
+        line-height: $titleHeight;
+        opacity: 1;
+    }
+}
+
+.name {
+    position: relative;
+    font-size: 40px;
+    text-align: center;
+    line-height: calc($headerHeight - $titleHeight);
 }

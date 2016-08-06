@@ -53,7 +53,7 @@ module.exports = function(options) {
       "webpack/hot/only-dev-server", // See above
       path.resolve(__dirname, 'scripts/app.js') // Start with js/app.js...
     ];
-    cssLoaders = 'style-loader!css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!postcss-loader';
+    cssLoaders = 'style-loader!css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader';
     // Only plugin is the hot module replacement plugin
     plugins = [
       new webpack.HotModuleReplacementPlugin(), // Make hot loading work
@@ -86,7 +86,7 @@ module.exports = function(options) {
       ]
     },
     resolve: {
-      modulesDirectories: ['node_modules', './scripts']
+      modulesDirectories: ['node_modules', 'scripts', 'assets']
     },
     plugins: plugins,
     postcss: function() {
@@ -94,7 +94,7 @@ module.exports = function(options) {
         precss({
           url: {
               url: "inline",
-              basePath: path.join(__dirname, "/")
+              basePath: path.join(__dirname, "/assets")
           },
           autoprefixer: {
             browsers: ['last 2 versions', 'IE > 8'] // ...supporting the last 2 major browser versions and IE 8 and up...

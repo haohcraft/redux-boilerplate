@@ -6,6 +6,11 @@ var postcss = require('postcss');
 // list of all plugins
 var processors = [
     {
+        plugin: require('postcss-normalize'),
+        namespace: "normalize",
+        defaults: {}
+    },
+    {
         plugin: require('postcss-strip-inline-comments'),
         namespace: "strip",
         defaults: {}
@@ -41,6 +46,11 @@ var processors = [
         plugin:    require('autoprefixer'),
         namespace: 'autoprefixer',
         defaults:  {}
+    },
+    {
+        plugin:    require('postcss-hexrgba'),
+        namespace: 'hexrgba',
+        defaults: {}
     }
 ];
 
