@@ -5,4 +5,5 @@ build
 
 # Ignore config stuff
 server.js
-*config.js
+*.config.js
+makewebpackconfig.js

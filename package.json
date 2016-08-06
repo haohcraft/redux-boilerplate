@@ -9,7 +9,7 @@
   "author": "Hao Huang",
   "license": "MIT",
   "devDependencies": {
-    "autoprefixer": "^6.3.6",
+    "autoprefixer": "^6.4.0",
     "babel": "^6.5.2",
     "babel-cli": "^6.9.0",
     "babel-core": "^6.8.0",
@@ -35,6 +35,8 @@
     "eslint-plugin-react": "^5.1.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.16.1",
+    "postcss-loader": "^0.9.1",
+    "precss": "^1.4.0",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
     "react-redux": "^4.4.5",
