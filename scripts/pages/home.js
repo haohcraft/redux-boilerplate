@@ -3,6 +3,7 @@ import Header from 'components/header';
 import Footer from 'components/footer';
 import Info from 'components/info';
 import Timer from 'components/timer';
+import Form from 'containers/form';
 
 export default class HomePage extends Component {
     static propTypes = {
@@ -13,6 +14,7 @@ export default class HomePage extends Component {
             <Header name="Café Reserve" />
             <Info />
             <Timer />
+            <Form.View />
             <Footer />
         </div>;
     }
