@@ -1,15 +1,48 @@
-.input {
-    input {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        &:focus {
-            outline: none;
-        }
+$inputWidth: 710px;
+input {
+    width: $inputWidth;
+    height: 61px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 3px;
+    border-color: #EBEBEB;
+    background-color: #F9F9F9;
+    box-sizing: border-box;
+    padding-left: 20px;
+    &:focus {
+        outline: none;
     }
-    
 }
-
+.input {
+    width: 100%;
+    margin: 10px 0px;
+    font-size: 20px;
+}
+.input-error {
+    background-color: rgba(208, 2, 27, .07);
+    border-color: rgba(208, 2, 27, .07);
+}
 .error {
+    width: $inputWidth;
+    margin: 0 auto;
+    padding-left: 20px;
+    margin-bottom: 2px;
+    font-size: 13px;
+    text-align: left;
     color: red;
+}
+.request {
+    width: $inputWidth;
+    padding-left: 20px;
+    padding-top: 5px;
+    min-height: 121px;
+    border: none;
+    border-radius: 3px;
+    border-color: #EBEBEB;
+    background-color: #F9F9F9;
+    box-sizing: border-box;
+    resize: none;
+    &:focus {
+        outline: none;
+    }
 }

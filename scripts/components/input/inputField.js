@@ -4,7 +4,7 @@ import style from './style.css';
 import _ from 'lodash';
 import cx from 'classnames';
 @CSSModules(style)
-export default class Input extends Component {
+export default class InputField extends Component {
     static propTypes = {
         name: PropTypes.string,
         validate: PropTypes.object,
@@ -23,13 +23,13 @@ export default class Input extends Component {
     };
     render() {
         const { validate, data, placeholder, name } = this.props;
-        const InputField = name === 'request' ? 'textarea' : 'input';
+        const Field = name === 'request' ? 'textarea' : 'input';
         const inputcn = cx(_.get(style, `${name}`), {
             [style['input-error']]: !data.isValid
         });
         return <div styleName="input">
             {!data.isValid && <div styleName="error">{validate.content}</div>}
-            <InputField
+            <Field
                 className={inputcn}
                 type="text"
                 onChange={::this.onChange}

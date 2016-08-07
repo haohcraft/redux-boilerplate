@@ -4,9 +4,9 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
-
 import HomePage from './pages/home';
 import rootReducer from './reducers';
+require('../assets/css/normalizer.css');
 // Create the store with the redux-thunk middleware, which allows us
 // to do asynchronous things in the actions
 const createStoreWithMiddleware = applyMiddleware(thunk, createLogger())(createStore);

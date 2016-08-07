@@ -4,6 +4,7 @@ $height: 75px;
     justify-content: center;
     height: $height;
     line-height: $height;
+    font-size: 22px;
 }
 .content {
     width: 334px;
@@ -11,5 +12,4 @@ $height: 75px;
 }
 .name {
     display: inline;
-    font-size: 22px;
 }

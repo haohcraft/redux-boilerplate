@@ -1,10 +1,10 @@
 import { ActionTypes } from './constants';
 const initialState = {
-    first: { value: '', isValid: true },
-    last: { value: '', isValid: true },
-    phone: { value: '', isValid: true },
-    email: { value: '', isValid: true },
-    request: { value: '', isValid: true }
+    first: { value: '', isValid: true, temp: '' },
+    last: { value: '', isValid: true, temp: '' },
+    phone: { value: '', isValid: true, temp: '' },
+    email: { value: '', isValid: true, temp: '' },
+    request: { value: '', isValid: true, temp: '' }
 };
 function formReducer(state = initialState, action = {}) {
     const { payload } = action;

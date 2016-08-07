@@ -14,6 +14,7 @@ const Form = (props) => {
             formFields.map((f, k) => {
                 const { name, ...rest } = f;
                 return <Input key={k}
+                    name={name}
                     change={actions[name]}
                     data={form[name]}
                     {...rest}
