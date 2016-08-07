@@ -1,0 +1,15 @@
+$height: 75px;
+.info {
+    display: flex;
+    justify-content: center;
+    height: $height;
+    line-height: $height;
+}
+.content {
+    width: 334px;
+    text-align: center;
+}
+.name {
+    display: inline;
+    font-size: 22px;
+}
