@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import CSSModules from 'react-css-modules';
 import style from './style.css';
+import Label from './label';
 import _ from 'lodash';
 import cx from 'classnames';
 @CSSModules(style)
@@ -27,6 +28,10 @@ export default class InputField extends Component {
         const inputcn = cx(_.get(style, `${name}`), {
             [style['input-error']]: !data.isValid
         });
+        const labelName = cx({
+            sucess: !!data.value && data.isValid,
+            error: !data.isValid
+        });
         return <div styleName="input">
             {!data.isValid && <div styleName="error">{validate.content}</div>}
             <Field
@@ -37,6 +42,8 @@ export default class InputField extends Component {
                 placeholder={placeholder}
                 value={data.temp}
             />
+            <span>sd</span>
+            <Label name={labelName} />
         </div>;
     }
     onChange(evt) {
