@@ -1,0 +1,17 @@
+.finish {
+    width: 100%;
+    text-align: center;
+    .btn, .text {
+        margin: 0 auto;
+    }
+    .btn {
+        font-size: 22px;
+    }
+    .text {
+        width: 680px;
+        color: #777777;
+        font-size: 14px;
+        text-align: left;
+        padding: 10px 20px;
+    }
+}

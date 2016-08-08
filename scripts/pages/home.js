@@ -4,6 +4,7 @@ import Footer from 'components/footer';
 import Info from 'components/info';
 import Timer from 'components/timer';
 import Form from 'containers/form';
+import Finish from 'containers/finishBtn';
 
 export default class HomePage extends Component {
     static propTypes = {
@@ -15,6 +16,7 @@ export default class HomePage extends Component {
             <Info />
             <Timer />
             <Form.View />
+            <Finish />
             <Footer />
         </div>;
     }

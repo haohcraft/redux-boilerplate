@@ -14,11 +14,22 @@ const data = [
         icon: 'clock'
     }
 ];
+const buildContent = (contentData) => {
+    const content = [];
+    for (let i = 0; i < contentData.length; i++) {
+        const c = data[i];
+        content.push(<div key={i} styleName="content">
+            <Icon name={c.icon} />
+            <div styleName="name">{c.content}</div>
+        </div>);
+        if (i <= 1) {
+            content.push(<span key={`split_${i}`} styleName="split"></span>);
+        }
+    }
+    return content;
+};
 const Info = (props) => (<div styleName="info">
-    {props.data.map((c, k) => (<div key={k} styleName="content">
-        <Icon name={c.icon} />
-        <div styleName="name">{c.content}</div>
-    </div>))}
+    {buildContent(props.data)}
 </div>);
 Info.defaultProps = { data };
 Info.propTypes = {

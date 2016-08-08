@@ -10,6 +10,12 @@ $height: 75px;
     width: 334px;
     text-align: center;
 }
+.split {
+    width: 1px;
+    height: 50px;
+    margin-top: 12.5px;
+    background: #F0F0F0;
+}
 .name {
     display: inline;
 }
