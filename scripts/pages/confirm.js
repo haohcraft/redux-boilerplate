@@ -1,5 +1,4 @@
 import React from 'react';
-
 const style = {
     height: '100%',
     width: '100%',
@@ -10,6 +9,4 @@ const style = {
 const Confirm = () => (<div className="confirm" style={style}>
     Confirming Reservation...
 </div>);
-
-
 export default Confirm;
