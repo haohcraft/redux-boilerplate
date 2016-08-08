@@ -1,8 +1,10 @@
 .timer {
+    display: flex;
+    justify-content: center;
     height: 40px;
+    margin: 0 atuo;
     line-height: 40px;
-}
-.content {
     text-align: center;
     font-size: 22px;
 }
+.content {}

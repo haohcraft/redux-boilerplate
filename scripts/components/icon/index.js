@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react';
 import style from 'css/fontello.css';
 import CSSModules from 'react-css-modules';
 const iconMap = {
-    clock: style['icon-reserve_widget_icon_04'],
+    clock: style['icon-reserve_widget_icon_10'],
+    clock2: style['icon-reserve_widget_icon_04'],
     people: style['icon-reserve_widget_icon_08'],
     calendar: style['icon-reserve_widget_icon_09'],
     sucess: style['icon-reserve_widget_icon_11'],

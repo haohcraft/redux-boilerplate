@@ -2,14 +2,14 @@ import React, { PropTypes, Component } from 'react';
 import CSSModules from 'react-css-modules';
 import style from './style.css';
 import Icon from 'components/icon';
-
 @CSSModules(style)
 export default class Timer extends Component {
     static propTypes = {
-        interval: PropTypes.number
+        interval: PropTypes.number,
+        callback: PropTypes.func
     };
     static defaultProps = {
-        interval: 1000 * 5
+        interval: 1000 * 60 * 5
     };
     constructor(props) {
         super(props);
@@ -40,6 +40,7 @@ export default class Timer extends Component {
             /*eslint-disable*/
             alert("Your reservation has expired");
             /*eslint-enable*/
+            this.props.callback();
             this.setState({
                 interval: this.props.interval
             });
