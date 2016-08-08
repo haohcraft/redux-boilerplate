@@ -1,4 +1,9 @@
 $inputWidth: 710px;
+@media (max-width: 600px) {
+  .input-container, .request {
+    width: 100% !important;
+  }
+}
 .input-container {
     position: relative;
     width: $inputWidth;
