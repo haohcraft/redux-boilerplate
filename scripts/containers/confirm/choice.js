@@ -1,8 +1,9 @@
 import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
-import style from './style.css';
-import Icon from 'components/icon';
+import { connect } from 'react-redux';
+import style from './choice.css';
 import _ from 'lodash';
+import Notation from './notation';
 
 const iconMap = {
     people: 'people',
@@ -15,21 +16,23 @@ const buildContent = (contentData) => {
     for (let i = 0; i < keys.length; i++) {
         const k = keys[i];
         const c = contentData[k];
-        content.push(<div key={i} styleName="content">
-            <Icon name={iconMap[k]} />
-            <div styleName="name">{c}</div>
-        </div>);
-        if (i <= 1) {
-            content.push(<span key={`split_${i}`} styleName="split"></span>);
-        }
+        const notationContent = (<div>{c}</div>);
+        content.push(
+            <div key={i} styleName="notation">
+                <Notation content={notationContent} icon={iconMap[k]} />
+            </div>
+        );
     }
     return content;
 };
-const Info = (props) => (<div styleName="info">
+const Choice = (props) => (<div styleName="info">
     {buildContent(props.choice)}
 </div>);
-Info.propTypes = {
+Choice.propTypes = {
     choice: PropTypes.object
 };
 
-export default CSSModules(style)(Info);
+export default connect(
+    (state) => ({ choice: state.choice })
+)(CSSModules(style)(Choice));
+

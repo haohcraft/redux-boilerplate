@@ -11,7 +11,7 @@ const Notation = (props) => (<div styleName="notation">
 
 Notation.propTypes = {
     icon: PropTypes.string,
-    content: PropTypes.string,
+    content: PropTypes.element,
     styles: PropTypes.object
 };
 

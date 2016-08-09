@@ -7,7 +7,9 @@ const iconMap = {
     people: style['icon-reserve_widget_icon_08'],
     calendar: style['icon-reserve_widget_icon_09'],
     sucess: style['icon-reserve_widget_icon_11'],
-    error: style['icon-reserve_widget_icon_03']
+    error: style['icon-reserve_widget_icon_03'],
+    restaurant: style['icon-reserve_widget_icon_06'],
+    request: style['icon-reserve_widget_icon_02']
 };
 const Icon = (props) => (<span className={`${props.styles.icon} ${iconMap[props.name]}`}></span>);
 Icon.propTypes = {

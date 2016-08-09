@@ -19,7 +19,7 @@ export default class Timer extends Component {
         };
     }
     componentDidMount() {
-        this.timer = setInterval(::this.tick, 1000);
+        // this.timer = setInterval(::this.tick, 1000);
     }
     componentWillUnmount() {
         clearTimeout(this.timer);

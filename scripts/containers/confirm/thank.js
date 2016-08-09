@@ -1,10 +1,14 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import Notation from './notation';
 import _ from 'lodash';
-const Thank = (props) => (<div className="thank">
-    <div>{`Thank you, ${props.name}`}</div>
-    <div>Your reservation is confirmed.</div>
-</div>);
+const Thank = (props) => {
+    const content = (<div>
+        <div>{`Thank you, ${props.name}`}</div>
+        <div>Your reservation is confirmed.</div>
+    </div>);
+    return <Notation content={content} icon="sucess" />;
+};
 
 Thank.propTypes = {
     name: PropTypes.string
