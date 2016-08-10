@@ -6,14 +6,14 @@ import Label from './label';
 import cx from 'classnames';
 
 const Input = (props) => {
-    const { data } = props;
+    const { data, name } = props;
     const labelName = cx({
         sucess: !!data.value && data.isValid,
         error: !data.isValid
     });
     return <div styleName="input-container">
         <InputField {...props} />
-        <Label name={labelName} />
+        {name !== 'request' && <Label name={labelName} />}
     </div>;
 };
 

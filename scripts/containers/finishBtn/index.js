@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import CSSModules from 'react-css-modules';
 import style from './style.css';
 import _ from 'lodash';
+import Router from 'containers/router';
 
 import Button from 'components/button';
 @connect(
@@ -15,14 +16,18 @@ import Button from 'components/button';
                 true
             )
         };
-    }
+    },
+    (dispatch) => ({
+        next: () => dispatch(Router.Actions.setPage({ index: 1 }))
+    })
 )
 @CSSModules(style)
 export default class Finish extends Component {
     static propTypes = {
         title: PropTypes.string,
         isActive: PropTypes.bool,
-        styles: PropTypes.object
+        styles: PropTypes.object,
+        next: PropTypes.func
     };
     render() {
         return <div styleName="finish">
@@ -38,6 +43,6 @@ export default class Finish extends Component {
         </div>;
     }
     click() {
-
+        if (this.props.isActive) this.props.next();
     }
 }

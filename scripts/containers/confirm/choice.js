@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import style from './choice.css';
 import _ from 'lodash';
 import Notation from './notation';
+import Line from 'components/line';
 
 const iconMap = {
     people: 'people',
@@ -25,9 +26,13 @@ const buildContent = (contentData) => {
     }
     return content;
 };
-const Choice = (props) => (<div styleName="info">
-    {buildContent(props.choice)}
-</div>);
+const Choice = (props) => (<div>
+    <Line />
+    <div styleName="info">
+        {buildContent(props.choice)}
+    </div>
+</div>
+);
 Choice.propTypes = {
     choice: PropTypes.object
 };

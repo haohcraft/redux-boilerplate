@@ -1,6 +1,10 @@
 import React, { PropTypes } from 'react';
+import Line from 'components/line';
 import { connect } from 'react-redux';
 import Notation from './notation';
+const style = {
+    marginBottom: '30px'
+};
 const Request = (props) => {
     if (!props.request || !props.request.length) return null;
     const content = (
@@ -9,7 +13,10 @@ const Request = (props) => {
             <div>{props.request}</div>
         </div>
     );
-    return <Notation icon="request" content={content}/>;
+    return <div style={style}>
+        <Line />
+        <Notation icon="request" content={content}/>
+    </div>;
 };
 Request.propTypes = {
     request: PropTypes.string

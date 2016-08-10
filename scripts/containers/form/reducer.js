@@ -4,7 +4,7 @@ const initialState = {
     last: { value: '', isValid: true, temp: '' },
     phone: { value: '', isValid: true, temp: '' },
     email: { value: '', isValid: true, temp: '' },
-    request: { value: '', isValid: true, temp: '' }
+    request: { value: 'Haokldjsfkjds dkjkldsjkdsfsdjjsdhjkhkl', isValid: true, temp: '' }
 };
 function formReducer(state = initialState, action = {}) {
     const { payload } = action;

@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import Form from './containers/form';
+import Router from './containers/router';
 export default combineReducers({
+    router: Router.Reducer,
     form: Form.Reducer,
     choice: () => ({
         people: '4 People',
