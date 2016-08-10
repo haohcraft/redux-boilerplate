@@ -26,4 +26,4 @@ python -m SimpleHTTPServer 8000
 open `localhost:8000`
 ```
 ### Note
-This no icon for `cross` in your front folder, so I pick a warning icon instead
+There is no icon for `cross` in the font folder
