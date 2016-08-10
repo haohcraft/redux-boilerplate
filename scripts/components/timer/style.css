@@ -2,9 +2,10 @@
     display: flex;
     justify-content: center;
     height: 40px;
-    margin: 0 atuo;
+    margin: 0 auto;
     line-height: 40px;
     text-align: center;
     font-size: 22px;
+    margin-bottom: 5px;
 }
 .content {}
