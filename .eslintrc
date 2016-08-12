@@ -11,12 +11,15 @@
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,
     "react/react-in-jsx-scope": 2,
+    'react/prefer-stateless-function': 2,
+    'react/prop-types': [2, { ignore: [], customValidators: [] }],
+    'react/jsx-no-duplicate-props': [0, { ignoreCase: false }],
     "comma-dangle": 0,  // not sure why airbnb turned this on. gross!
     "indent": [2, 4, {"SwitchCase": 1}],
     "spaced-comment": 0,
     "no-redeclare": 0,
     "no-console": 2,
-
+    "new-cap": ["error", {"capIsNew": false}],
     //Temporarirly disabled due to a possible bug in babel-eslint (todomvc example)
     "block-scoped-var": 0,
     // Temporarily disabled for test/* until babel/babel-eslint#33 is resolved
@@ -24,5 +27,8 @@
   },
   "plugins": [
     "react"
-  ]
+  ],
+  'settings': {
+    'import/resolver': 'webpack'
+  }
 }
