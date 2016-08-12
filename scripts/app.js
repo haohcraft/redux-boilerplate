@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
-import HomePage from './pages/home';
+import ImagePage from 'pages/image';
 import rootReducer from './reducers';
 
 // Create the store with the redux-thunk middleware, which allows us
@@ -25,7 +25,7 @@ if (module.hot) {
 
 render(
     <Provider store={store}>
-        <HomePage title="good" />
+        <ImagePage title="good" />
     </Provider>,
     document.getElementById('app')
 );
