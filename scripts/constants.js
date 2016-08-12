@@ -14,7 +14,7 @@ export const DATA_IMAGES = [
     }, {
         name: 'Justin Bieber',
         description: 'Feat. Shawn Mendes, One Direction and more',
-        imgUrl: 'http://iscale.iheart.com/catalog/artist/44368?ops=fit(250,0)'
+        imgUrl: '#http://iscale.iheart.com/catalog/artist/44368?ops=fit(250,0)'
     }, {
         name: 'Major Lazer',
         description: 'Feat. Iyaz, Dillon Francis & DJ Snake and more',
