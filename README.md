@@ -1,2 +1,6 @@
-#Demo
-[Booking Confirm Page](https://github.com/haohcraft/redux-boilerplate/tree/reserve)
+## Note
+1. Responsive Images
+    - [x] Used `flexbox` to layout
+    - [x] Handled the case where the image fails to load
+
+2. Node Server
