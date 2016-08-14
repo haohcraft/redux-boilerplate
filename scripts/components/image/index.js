@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import CSSModules from 'react-css-modules';
+import { compostImageUrl } from 'lib/utils';
 import style from './style.css';
 @CSSModules(style)
 export default class Image extends Component {
@@ -10,12 +11,12 @@ export default class Image extends Component {
         };
     }
     render() {
-        const { imgUrl, name, description } = this.props;
+        const { artistId, name, description } = this.props;
         return <div styleName="image-container">
             <div>
                 {this.state.hasImage && <img
                     styleName="bg"
-                    src={imgUrl}
+                    src={compostImageUrl(artistId)}
                     onError={::this.onImageError}
                 />}
             </div>
@@ -30,7 +31,7 @@ export default class Image extends Component {
     }
 }
 Image.propTypes = {
-    imgUrl: PropTypes.string,
+    artistId: PropTypes.number,
     name: PropTypes.string,
     description: PropTypes.string
 };
