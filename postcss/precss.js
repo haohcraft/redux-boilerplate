@@ -17,7 +17,7 @@ var processors = [
         defaults:  {}
     },
     {
-        plugin:    require('./vars'),
+        plugin:    require('postcss-advanced-variables'),
         namespace: 'variables',
         defaults:  {}
     },
