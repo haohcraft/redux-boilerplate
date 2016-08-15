@@ -1,4 +1,3 @@
-/*eslint-disable*/
 /*
     Based on: https://github.com/jonathantneal/precss/blob/master/index.js
 */
@@ -76,4 +75,3 @@ module.exports = postcss.plugin('precss', function (options) {
 
     return instance;
 });
-/*eslint-enable*/
