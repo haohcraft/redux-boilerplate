@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import _ from 'lodash';
 import CSSModules from 'react-css-modules';
 import { connect } from 'react-redux';
 import { changeQuery } from './actions';
@@ -6,10 +7,13 @@ import { searchArtistList } from 'containers/image/actions';
 import style from './style.css';
 @connect(
     (state) => ({ query: state.query.value }),
-    (dispatch) => ({
-        changeQuery: (v) => (dispatch(changeQuery(v))),
-        searchArtistList: (v) => (dispatch(searchArtistList(v)))
-    })
+    (dispatch) => {
+        const debouncedSearchArtistList = _.debounce((v) => (dispatch(searchArtistList(v))), 300);
+        return {
+            changeQuery: (v) => (dispatch(changeQuery(v))),
+            searchArtistList: debouncedSearchArtistList
+        };
+    }
 )
 @CSSModules(style)
 export default class Search extends Component {
