@@ -1,7 +1,7 @@
 ### Set UP
 ```
-git clone -b radio git@github.com:haohcraft/redux-boilerplate.git radio
-cd radio
+git clone -b fetch git@github.com:haohcraft/redux-boilerplate.git fetch
+cd fetch
 npm install
 ```
 
