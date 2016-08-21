@@ -1,0 +1,39 @@
+$inputWidth: 300px;
+.input-container {
+    position: relative;
+    width: $inputWidth;
+    margin: 0 auto;
+}
+input {
+    width: 100%;
+    height: 61px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 3px;
+    border-color: #EBEBEB;
+    background-color: #F9F9F9;
+    box-sizing: border-box;
+    padding-left: 20px;
+    font-size: 20px;
+    &:focus {
+        outline: none;
+    }
+}
+.input {
+    margin: 20px 0px;
+}
+.input-error {
+    background-color: rgba(208, 2, 27, .07);
+    border-color: rgba(208, 2, 27, .07);
+}
+.error {
+    position: absolute;
+    top: 0px;
+    width: $inputWidth;
+    margin: 0 auto;
+    padding-left: 20px;
+    margin-bottom: 2px;
+    font-size: 13px;
+    text-align: left;
+    color: red;
+}
