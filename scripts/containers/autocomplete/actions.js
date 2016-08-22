@@ -5,7 +5,12 @@ export const changeQuery = (query) => ({
         query
     }
 });
-
+export const selectAirport = (selected) => ({
+    type: ActionTypes.SELECT_AIRPORT,
+    payload: {
+        selected
+    }
+});
 export const searchAirport = (query) => ({
     type: ActionTypes.SEARCH_AIRPORT,
     payload: {

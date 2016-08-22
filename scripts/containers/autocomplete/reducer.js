@@ -5,7 +5,20 @@ const initialState = {
     loaded: false,
     error: false,
     query: '',
-    list: []
+    list: [],
+    selected: {
+        start: {
+            code: '',
+            lat: 0,
+            lon: 0,
+        },
+        end: {
+            code: '',
+            lat: 0,
+            lon: 0,
+        },
+        shouldSetStart: true
+    }
 };
 
 const autocompleteReducer = (state = initialState, action = {}) => {
@@ -15,6 +28,15 @@ const autocompleteReducer = (state = initialState, action = {}) => {
                 ...state,
                 query: _.get(action, 'payload.query', '')
             };
+        case ActionTypes.SELECT_AIRPORT:
+            return {
+                ...state,
+                selected: {
+                    ...state.selected,
+                    ..._.get(action, 'payload.selected'),
+                    shouldSetStart: !state.selected.shouldSetStart
+                }
+            };
         case RequestActionTypes.LOADING:
             return {
                 ...state,
@@ -23,15 +45,7 @@ const autocompleteReducer = (state = initialState, action = {}) => {
                 error: false
             };
         case RequestActionTypes.SUCCESS: {
-            const artists = _.get(action, 'payload', []);
-            const list = _.reduce(artists, (r, v) => {
-                r.push({
-                    name: v.artistName,
-                    description: v.artistBio,
-                    artistId: v.artistId
-                });
-                return r;
-            }, []);
+            const list = _.get(action, 'payload.airports', []);
             return {
                 ...state,
                 loading: false,

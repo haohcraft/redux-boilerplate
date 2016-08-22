@@ -1,2 +1,22 @@
-.autoComplete {}
-.input {}
+$inputWidth: 400px;
+.autoComplete {
+    position: relative;
+    width: $inputWidth;
+    margin: 0 auto;
+}
+.input {
+    position: relative;
+    width: 100%;
+    height: 61px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 3px;
+    border-color: #EBEBEB;
+    background-color: #F9F9F9;
+    box-sizing: border-box;
+    padding-left: 20px;
+    font-size: 20px;
+    &:focus {
+        outline: none;
+    }
+}

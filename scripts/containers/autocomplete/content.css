@@ -1,0 +1,19 @@
+$inputWidth: 400px;
+.autocompleteContent {
+    position: absolute;
+    width: $inputWidth;
+    top: 0px;
+    left: 0px;
+    font-size: 16px;
+    list-style: none;
+    margin: 0px;
+    padding: 5px;
+    background-color: #F9F9F9;
+}
+.item {
+    padding: 5px 10px;
+    cursor: pointer;
+    &:hover {
+        background-color: #EBEBEB;
+    }
+}
