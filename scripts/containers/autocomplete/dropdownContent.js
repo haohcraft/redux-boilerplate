@@ -1,12 +1,15 @@
 import React, { PropTypes, Component } from 'react';
 import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
 import CSSModules from 'react-css-modules';
 import style from './content.css';
-
+import DropDownList from './dropdownList';
+import composeView from 'lib/decorators/composeView';
+import ResponseMsg from 'components/responseMsg';
 @CSSModules(style)
-export default class AutocompleteContent extends Component {
+class AutocompleteContent extends Component {
     static propTypes = {
-        list: PropTypes.array,
+        parts: PropTypes.object,
         anchorEl: PropTypes.object,
         select: PropTypes.func
     };
@@ -23,24 +26,16 @@ export default class AutocompleteContent extends Component {
         this.calcPos();
     }
     render() {
-        const { list } = this.props;
         const { pos } = this.state;
         const styleContent = {
             transform: `translate(${pos.left}px, ${pos.top}px)`
         };
-        const opts = list && list.map((airport, k) => (<li styleName="item" key={k}
-                data-code={airport.code}
-                data-lat={airport.lat}
-                data-lon={airport.lon}
-            >
-                {airport.name}
-            </li>
-        ));
-        return <ul styleName="autocompleteContent" style={styleContent}
+        return <div styleName="autocompleteContent" style={styleContent}
             onClick={::this.onSelectAirport}
         >
-            {opts}
-        </ul>;
+            {this.props.parts.list}
+            <ResponseMsg parts={this.props.parts} />
+        </div>;
     }
     calcPos() {
         const { anchorEl } = this.props;
@@ -70,3 +65,26 @@ export default class AutocompleteContent extends Component {
         });
     }
 }
+
+export default connect(
+    (state) => (state.autocomplete)
+)(composeView({
+    parts: {
+        list: {
+            shouldRender: (props) => (!props.loading && props.list.length),
+            content: (props) => (<DropDownList {...props}/>)
+        },
+        error: {
+            shouldRender: (props) => (props.loaded && props.error),
+            content: () => (<span>This is an error</span>)
+        },
+        loading: {
+            shouldRender: (props) => (props.loading),
+            content: () => (<span>Loading</span>)
+        },
+        noResponse: {
+            shouldRender: (props) => (props.loaded && !props.error && !props.list.length),
+            content: () => (<span>This no such result.</span>)
+        }
+    }
+})(AutocompleteContent));

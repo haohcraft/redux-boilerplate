@@ -1,5 +1,9 @@
 .map {
     width: 100%;
+    height: 700px;
     margin: 0 auto;
     text-align: center;
+}
+.desc {
+    padding: 10px 0px;
 }

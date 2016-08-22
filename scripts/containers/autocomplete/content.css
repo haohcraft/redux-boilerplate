@@ -9,11 +9,6 @@ $inputWidth: 400px;
     margin: 0px;
     padding: 5px;
     background-color: #F9F9F9;
-}
-.item {
-    padding: 5px 10px;
-    cursor: pointer;
-    &:hover {
-        background-color: #EBEBEB;
-    }
+    border: 1px solid #ffffff;
+    border-top: 1px solid #EBEBEB;
 }

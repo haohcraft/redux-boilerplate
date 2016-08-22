@@ -23,6 +23,7 @@ export default class Map extends Component {
     }
     render() {
         const { start, end } = this.props;
+        const desc = !!start.code && !!end.code && `From ${start.code} To ${end.code}`;
         let mapUrl = `
             http://maps.googleapis.com/maps/api/staticmap?
             key=AIzaSyBOcV4KMZ8oG6ps4B-kJl3cCba1NuibqKw
@@ -38,12 +39,13 @@ export default class Map extends Component {
         if (end.code) {
             mapUrl += `
                 &markers=color:blue%7Clabel:${end.code.substring(0, 1)}%7C${end.lat},${end.lon}
-                &path=color:0x0000ff|weight:5|${start.lat},${start.lon}|${end.lat},${end.lon}
+                &path=color:0x0000ff|weight:5|${start.lat},${start.lon}|
+                    ${end.lat},${end.lon}
+
             `;
         }
         return <div styleName="map">
-
-            {!!start.code && !!end.code && <div>{`${start.code} TO ${end.code}`}</div>}
+            <div styleName='desc'>{desc}</div>
             <img src={mapUrl} />
         </div>;
     }
