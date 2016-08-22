@@ -1,7 +1,7 @@
 ### Set UP
 ```
-git clone -b autocomplete git@github.com:haohcraft/redux-boilerplate.git autocomplete
-cd autocomplete
+git clone -b dropdown git@github.com:haohcraft/redux-boilerplate.git dropdown
+cd dropdown
 npm install
 ```
 
