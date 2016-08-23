@@ -8,4 +8,5 @@ build
 
 # Ignore config stuff
 server.js
+app.js
 *.config.js
