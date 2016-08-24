@@ -1,5 +1,17 @@
+$blue: rgb(49, 130, 189);
 .axis {
     line{
         opacity: 0.2;
+    }   
+}
+.point {
+    stroke: $blue;
+    fill: $blue;
+    &:hover {
+        cursor: pointer;
     }
+}
+.line {
+    stroke: $blue;
+    fill: transparent;
 }

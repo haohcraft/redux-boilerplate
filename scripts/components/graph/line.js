@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-// import ReactDOM from 'react-dom';
 import * as d3 from 'd3';
-// import style from './style.css';
+import style from './style.css';
 import data from './data';
 export default class Line extends Component {
     static propTypes = {
@@ -12,17 +11,13 @@ export default class Line extends Component {
     }
     render() {
         const { xScale, yScale } = this.props;
-        const style = {
-            stroke: 'rgb(49, 130, 189)',
-            fill: 'transparent'
-        };
         const path = d3.line()
                 .x((d) => xScale(d.timestamp))
                 .y((d) => yScale(d.loadAvg));
 
         return <path
+                className={`${style.line}`}
                 transform='translate(5, 0)'
-                style={style}
                 d={path(data.loadavgData)}></path>;
     }
 }
