@@ -2,7 +2,6 @@ import os from 'os';
 
 const TEN_MIN_IN_SEC = 10 * 60;
 const lastTenMinLoadAvg = [];
-/*eslint-disable*/
 export const getLastTenMinLoadAvg = ({ interval /*in seconds*/ }) => {
     const compressed = [];
     compressed.push(lastTenMinLoadAvg.slice(-1)[0]);
@@ -11,16 +10,15 @@ export const getLastTenMinLoadAvg = ({ interval /*in seconds*/ }) => {
         compressed.unshift(lastTenMinLoadAvg[i - interval]);
         i = i - interval;
     }
-
     return compressed;
 };
-/*eslint-enable*/
 export const getLastOneMinLoadAvg = () => ({
     loadAvg: os.loadavg()[0],
     timestamp: new Date().getTime()
 });
 export const collectLastTenMinLoadAvg = () => {
     lastTenMinLoadAvg.push(getLastOneMinLoadAvg());
+    // To maintain a number of loadAvg
     if (lastTenMinLoadAvg.length >= TEN_MIN_IN_SEC) {
         lastTenMinLoadAvg.shift();
     }
