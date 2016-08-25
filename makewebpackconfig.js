@@ -29,6 +29,7 @@ module.exports = function(options) {
           warnings: false // ...but do not show warnings in the console (there is a lot of them)
         }
       }),
+      new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/]),
       new HtmlWebpackPlugin({
         template: 'index.html', // Move the index.html file...
         minify: { // Minifying it while it is parsed

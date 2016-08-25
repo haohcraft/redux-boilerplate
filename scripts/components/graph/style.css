@@ -14,3 +14,20 @@
     stroke: $blue;
     fill: transparent;
 }
+.tooltip {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 150px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 2px;
+    padding: 5px;
+    .time, .load {
+        display: flex;
+        justify-content: space-between;
+    }
+    .label, .content {
+        font-size: 14px;
+    }
+}

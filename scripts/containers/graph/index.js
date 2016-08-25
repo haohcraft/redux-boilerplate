@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import XYAxis from 'components/graph/xyAxis';
-import LineWithPoints from './lineWithPoints';
+import ConnectedLineWithPoints from './lineWithPoints';
+import ConnectedTooltip from './tooltip';
 import { getXScale, getYScale } from 'components/graph/utils';
 const Graph = (props) => {
     const width = 900;
@@ -11,10 +12,13 @@ const Graph = (props) => {
     const xScale = getXScale({ maxW: width, minX, maxX });
     const yScale = getYScale({ maxH: height, minY, maxY });
 
-    return <svg width={width} height={height}>
-        <XYAxis xScale={xScale} yScale={yScale} />
-        <LineWithPoints xScale={xScale} yScale={yScale} data={props.data} />
-    </svg>;
+    return <div style={{ position: 'relative' }}>
+        <svg width={width} height={height}>
+            <XYAxis xScale={xScale} yScale={yScale} />
+            <ConnectedLineWithPoints xScale={xScale} yScale={yScale} data={props.data} />
+        </svg>
+        <ConnectedTooltip />
+    </div>;
 };
 
 Graph.propTypes = {

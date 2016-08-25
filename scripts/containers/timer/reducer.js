@@ -17,7 +17,7 @@ const initialState = {
         min: 0,
         max: 4
     },
-    updateInterval: 1000 * 3
+    updateInterval: 1000 * 2000
 };
 const timerReducer = (state = initialState, action = {}) => {
     switch (action.type) {

@@ -26,14 +26,19 @@ export default class Points extends Component {
                     evt.target.setAttribute('transform', `translate(-${x - 4},-${y}),scale(2)`);
                     if (highlightPoint) {
                         highlightPoint({
-                            timestamp: x,
-                            loadAvg: y,
+                            ...d,
                             target: evt.target
                         });
                     }
                 },
                 onMouseOut: (evt) => {
                     evt.target.setAttribute('transform', defaultTransform);
+                    if (highlightPoint) {
+                        highlightPoint({
+                            ...d,
+                            target: null
+                        });
+                    }
                 }
             };
             return <circle
