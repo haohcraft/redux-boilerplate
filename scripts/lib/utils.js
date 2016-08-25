@@ -20,3 +20,25 @@ export const makeRequestActions = ({ prefix }) => {
         return result;
     }, {});
 };
+
+export const createRequestReducer = ({ prefix }) => {
+    const requestActions = makeRequestActions({ prefix });
+    return {
+        [requestActions.LOADING]: {
+            loading: true,
+            loaded: false,
+            error: false
+        },
+        [requestActions.SUCCESS]: {
+            loading: false,
+            loaded: true,
+            error: false,
+        },
+        [requestActions.ERROR]: {
+            loading: false,
+            loaded: true,
+            error: true
+        }
+    };
+};
+

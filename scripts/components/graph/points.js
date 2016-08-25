@@ -1,16 +1,17 @@
 import React, { PropTypes, Component } from 'react';
-import data from './data';
 import style from './style.css';
 export default class Points extends Component {
     static propTypes = {
         xScale: PropTypes.func,
-        yScale: PropTypes.func
+        yScale: PropTypes.func,
+        data: PropTypes.array
     };
     componentDidMount() {
     }
     render() {
+        const { data } = this.props;
         return <g className='points'>
-            {this.getPoints(data.loadavgData)}
+            {this.getPoints(data)}
         </g>;
     }
     getPoints(dataArr) {

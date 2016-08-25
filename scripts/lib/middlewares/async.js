@@ -1,10 +1,10 @@
 import _ from 'lodash';
 import { makeAjaxRequest } from 'lib/utils';
 let activeRequest;
-const getLastTenMinLoadAvg = (query) => {
+const getLastTenMinLoadAvg = (interval) => {
     const url = 'http://localhost:5050/api/getLastTenMinLoadAvg';
     const params = {
-        query,
+        interval,
     };
     if (activeRequest) activeRequest.abort();
     activeRequest = makeAjaxRequest(url, params);
@@ -14,17 +14,17 @@ const Async = (store) => (next) => (action) => {
     next(action);
     if (_.get(action, 'meta.request')) {
         const requestActions = _.get(action, 'meta.request.actions');
-        const query = _.get(action, 'meta.request.query');
-        if (query.length) {
+        const interval = _.get(action, 'meta.request.interval');
+        if (interval) {
             store.dispatch({
                 type: requestActions.LOADING
             });
-            getLastTenMinLoadAvg(query).then(
+            getLastTenMinLoadAvg(interval).then(
                 (response) => {
                     store.dispatch({
                         type: requestActions.SUCCESS,
                         payload: {
-                            loadAvgData: _.flatten(response) || []
+                            loadAvgData: response[0].loadavgData || []
                         }
                     });
                 },

@@ -2,6 +2,9 @@ import os from 'os';
 
 const TEN_MIN_IN_SEC = 10 * 60;
 const lastTenMinLoadAvg = [];
+let minLoadavg = Number.MAX_SAFE_INTEGER;
+let maxLoadavg = Number.MIN_SAFE_INTEGER;
+
 export const getLastTenMinLoadAvg = ({ interval /*in seconds*/ }) => {
     const compressed = [];
     compressed.push(lastTenMinLoadAvg.slice(-1)[0]);
@@ -10,14 +13,21 @@ export const getLastTenMinLoadAvg = ({ interval /*in seconds*/ }) => {
         compressed.unshift(lastTenMinLoadAvg[i - interval]);
         i = i - interval;
     }
-    return compressed;
+    return {
+        data: compressed,
+        min: minLoadavg,
+        max: maxLoadavg
+    };
 };
 export const getLastOneMinLoadAvg = () => ({
     loadAvg: os.loadavg()[0],
     timestamp: new Date().getTime()
 });
 export const collectLastTenMinLoadAvg = () => {
-    lastTenMinLoadAvg.push(getLastOneMinLoadAvg());
+    const loadAvg = getLastOneMinLoadAvg();
+    if (loadAvg.loadAvg > maxLoadavg) maxLoadavg = loadAvg.loadAvg;
+    if (loadAvg.loadAvg < minLoadavg) minLoadavg = loadAvg.loadAvg;
+    lastTenMinLoadAvg.push(loadAvg);
     // To maintain a number of loadAvg
     if (lastTenMinLoadAvg.length >= TEN_MIN_IN_SEC) {
         lastTenMinLoadAvg.shift();
