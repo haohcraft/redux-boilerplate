@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import XYAxis from './xyAxis';
-import Line from './line';
-import Points from './points';
+import LineWithPoints from './lineWithPoints';
 import { getXScale, getYScale } from './utils';
 const Graph = (props) => {
     const width = 900;
@@ -12,8 +11,7 @@ const Graph = (props) => {
 
     return <svg width={width} height={height}>
         <XYAxis xScale={xScale} yScale={yScale} />
-        <Line xScale={xScale} yScale={yScale} data={props.data}/>
-        <Points xScale={xScale} yScale={yScale} data={props.data} />
+        <LineWithPoints xScale={xScale} yScale={yScale} data={props.data} />
     </svg>;
 };
 

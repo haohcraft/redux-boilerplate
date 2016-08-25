@@ -22,13 +22,7 @@ export default class BaseAxis extends Component {
     }
     update() {
         const axis = this.getAxis();
-        /*eslint-disable*/
-        debugger;
-        /*eslint-enable*/
         if (axis) {
-             /*eslint-disable*/
-        debugger;
-        /*eslint-enable*/
             const el = ReactDOM.findDOMNode(this);
             d3.select(el).call(axis).attr('class', `x ${style.axis}`);
         }

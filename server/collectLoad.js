@@ -32,9 +32,5 @@ export const collectLastTenMinLoadAvg = () => {
     if (lastTenMinLoadAvg.length >= TEN_MIN_IN_SEC) {
         lastTenMinLoadAvg.shift();
     }
-    /*eslint-disable*/
-    // console.log("lastTenMinLoadAvg length:", lastTenMinLoadAvg.length);
-    // console.log("lastTenMinLoadAvg last:", lastTenMinLoadAvg.slice(-1));
-    /*eslint-enable*/
 };
 

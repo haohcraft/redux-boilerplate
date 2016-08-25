@@ -1,5 +1,6 @@
 import keyMirror from 'keymirror';
 import { makeRequestActions, createRequestReducer } from 'lib/utils';
+
 export const ActionTypes = keyMirror({
     UPDATE_INTERVAL: null,
     UPDATE_LOADAVG: null

@@ -1,4 +1,5 @@
-import { ActionTypes, RequestActionTypes } from './constants';
+import { ActionTypes, RequestActionTypes, TEN_MINUTES } from './constants';
+import _ from 'lodash';
 export const updateInterval = (interval) => ({
     type: ActionTypes.UPDATE_INTERVAL,
     payload: {
@@ -10,7 +11,24 @@ export const updateLoadAvg = () => ({
     meta: {
         request: {
             actions: RequestActionTypes,
-            interval: 10
+            interval: 10,
+            postRequestFunc: (resp) => {
+                /*eslint-disable*/
+                debugger;
+                /*eslint-enable*/
+                const loadAvg = resp[0].loadavgData;
+                const now = new Date().getTime();
+                const data = _.filter(loadAvg.data, (item) => {
+                    if (item.timestamp >= now - TEN_MINUTES && item.timestamp <= now) {
+                        return true;
+                    }
+                    return false;
+                });
+                return {
+                    ...loadAvg,
+                    data
+                };
+            }
         }
     }
 });

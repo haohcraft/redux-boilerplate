@@ -14,6 +14,7 @@ const Async = (store) => (next) => (action) => {
     next(action);
     if (_.get(action, 'meta.request')) {
         const requestActions = _.get(action, 'meta.request.actions');
+        const postRequestFunc = _.get(action, 'meta.request.postRequestFunc');
         const interval = _.get(action, 'meta.request.interval');
         if (interval) {
             store.dispatch({
@@ -21,10 +22,14 @@ const Async = (store) => (next) => (action) => {
             });
             getLastTenMinLoadAvg(interval).then(
                 (response) => {
+                    let resp = response;
+                    if (postRequestFunc && _.isFunction(postRequestFunc)) {
+                        resp = postRequestFunc(resp);
+                    }
                     store.dispatch({
                         type: requestActions.SUCCESS,
                         payload: {
-                            loadAvgData: response[0].loadavgData || []
+                            loadAvgData: resp
                         }
                     });
                 },

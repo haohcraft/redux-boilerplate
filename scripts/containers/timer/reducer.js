@@ -37,12 +37,13 @@ const timerReducer = (state = initialState, action = {}) => {
                 loadAvgData: [],
                 ...RequestReducers[RequestActionTypes.ERROR]
             };
-        case RequestActionTypes.SUCCESS:
+        case RequestActionTypes.SUCCESS: {
             return {
                 ...state,
                 ...RequestReducers[RequestActionTypes.SUCCESS],
                 loadAvgData: action.payload.loadAvgData
             };
+        }
         default:
             return state;
     }
