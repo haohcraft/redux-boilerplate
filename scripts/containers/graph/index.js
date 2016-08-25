@@ -1,11 +1,30 @@
-import React from 'react';
-import Graph from 'components/graph';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-// import data from './data';
-const GraphContainer = (props) => (<div className="graphContainer">
-    <Graph {...props}/>
-</div>);
+import XYAxis from 'components/graph/xyAxis';
+import LineWithPoints from './lineWithPoints';
+import { getXScale, getYScale } from 'components/graph/utils';
+const Graph = (props) => {
+    const width = 900;
+    const height = 200;
+    const { minX, maxX, minY, maxY } = props;
+    const xScale = getXScale({ maxW: width, minX, maxX });
+    const yScale = getYScale({ maxH: height, minY, maxY });
+
+    return <svg width={width} height={height}>
+        <XYAxis xScale={xScale} yScale={yScale} />
+        <LineWithPoints xScale={xScale} yScale={yScale} data={props.data} />
+    </svg>;
+};
+
+Graph.propTypes = {
+    data: PropTypes.array,
+    minX: PropTypes.number,
+    maxX: PropTypes.number,
+    minY: PropTypes.number,
+    maxY: PropTypes.number
+};
+
 
 export default connect(
     (state) => {
@@ -22,5 +41,4 @@ export default connect(
             maxY
         };
     }
-)(GraphContainer);
-// export default GraphContainer;
+)(Graph);

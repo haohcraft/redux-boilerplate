@@ -1,12 +1,13 @@
 # node_modules are ignored by default
 
 # Ignore PostCss
-postcss/
+postcss/**/*.js
 
 # Ignore build folder
 build
 
 # Ignore config stuff
+
 server.js
 app.js
 *.config.js

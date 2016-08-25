@@ -4,7 +4,8 @@ export default class Points extends Component {
     static propTypes = {
         xScale: PropTypes.func,
         yScale: PropTypes.func,
-        data: PropTypes.array
+        data: PropTypes.array,
+        highlightPoint: PropTypes.func
     };
     componentDidMount() {
     }
@@ -15,7 +16,7 @@ export default class Points extends Component {
         </g>;
     }
     getPoints(dataArr) {
-        const { xScale, yScale } = this.props;
+        const { xScale, yScale, highlightPoint } = this.props;
         return dataArr.map((d, k) => {
             const x = xScale(d.timestamp);
             const y = yScale(d.loadAvg);
@@ -23,6 +24,13 @@ export default class Points extends Component {
             const meta = {
                 onMouseEnter: (evt) => {
                     evt.target.setAttribute('transform', `translate(-${x - 4},-${y}),scale(2)`);
+                    if (highlightPoint) {
+                        highlightPoint({
+                            timestamp: x,
+                            loadAvg: y,
+                            target: evt.target
+                        });
+                    }
                 },
                 onMouseOut: (evt) => {
                     evt.target.setAttribute('transform', defaultTransform);
@@ -32,8 +40,6 @@ export default class Points extends Component {
                 className={`${style.point}`}
                 transform={defaultTransform}
                 key={k} cx={x} cy={y} r='3'
-                data-timestamp={x}
-                data-loadavg={y}
                 {...meta}
                 strokeWidth="0.5px"></circle>;
         });
