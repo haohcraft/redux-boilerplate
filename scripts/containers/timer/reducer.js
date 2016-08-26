@@ -1,4 +1,5 @@
-import { ActionTypes, RequestActionTypes, RequestReducers, TEN_MINUTES } from './constants';
+import { ActionTypes, RequestActionTypes,
+    RequestReducers, TEN_MINUTES, TEN_SEC } from './constants';
 const now = new Date().getTime();
 const initialState = {
     loading: false,
@@ -17,7 +18,7 @@ const initialState = {
         min: 0,
         max: 4
     },
-    updateInterval: 1000 * 200
+    updateInterval: TEN_SEC
 };
 const timerReducer = (state = initialState, action = {}) => {
     switch (action.type) {

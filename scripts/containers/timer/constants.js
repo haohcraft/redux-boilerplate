@@ -14,3 +14,4 @@ export const RequestReducers = createRequestReducer({
 });
 
 export const TEN_MINUTES = 1000 * 60 * 10;
+export const TEN_SEC = 1000 * 10;

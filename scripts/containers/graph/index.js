@@ -7,8 +7,8 @@ import ConnectedLineWithPoints from './lineWithPoints';
 import ConnectedTooltip from './tooltip';
 import { getXScale, getYScale } from 'components/graph/utils';
 const Graph = (props) => {
-    const width = 850;
-    const height = 350;
+    const width = 650;
+    const height = 250;
     const { minX, maxX, minY, maxY } = props;
     const xScale = getXScale({ maxW: width, minX, maxX });
     const yScale = getYScale({ maxH: height, minY, maxY });
