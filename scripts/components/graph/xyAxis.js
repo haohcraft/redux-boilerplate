@@ -12,7 +12,7 @@ export default class XYAxis extends Component {
     }
     render() {
         const { xScale, yScale } = this.props;
-        const transformYAxis = `translate(${xScale.range()[0] + 5}, 0)`;
+        const transformYAxis = `translate(${xScale.range()[0]}, 0)`;
         return (
             <g className="axis-container" transform="translate(0,0)">
                 <XAxis xScale={xScale}

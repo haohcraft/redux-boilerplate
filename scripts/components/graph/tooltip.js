@@ -7,9 +7,6 @@ import moment from 'moment';
 const Tooltip = (props) => {
     const { timestamp, loadAvg, target } = props;
     if (!target) return null;
-    /*eslint-disable*/
-    debugger;
-    /*eslint-enable*/
     const pos = target.getBoundingClientRect();
     const left = pos.left + pos.width / 2 - 10;
     const top = pos.top + pos.height + 5;

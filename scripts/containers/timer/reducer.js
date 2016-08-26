@@ -8,16 +8,16 @@ const initialState = {
         data: [
             {
                 timestamp: now - TEN_MINUTES,
-                loadAvg: 0
+                loadAvg: 1
             }, {
                 timestamp: now,
-                loadAvg: 0
+                loadAvg: 3
             }
         ],
         min: 0,
         max: 4
     },
-    updateInterval: 1000 * 2000
+    updateInterval: 1000 * 200
 };
 const timerReducer = (state = initialState, action = {}) => {
     switch (action.type) {

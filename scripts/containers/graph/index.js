@@ -1,20 +1,20 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import * as d3 from 'd3';
 import XYAxis from 'components/graph/xyAxis';
 import ConnectedLineWithPoints from './lineWithPoints';
 import ConnectedTooltip from './tooltip';
 import { getXScale, getYScale } from 'components/graph/utils';
 const Graph = (props) => {
-    const width = 900;
-    const height = 200;
+    const width = 850;
+    const height = 350;
     const { minX, maxX, minY, maxY } = props;
     const xScale = getXScale({ maxW: width, minX, maxX });
     const yScale = getYScale({ maxH: height, minY, maxY });
-
     return <div style={{ position: 'relative' }}>
         <svg width={width} height={height}>
-            <XYAxis xScale={xScale} yScale={yScale} />
+            <XYAxis xScale={xScale} yScale={yScale}/>
             <ConnectedLineWithPoints xScale={xScale} yScale={yScale} data={props.data} />
         </svg>
         <ConnectedTooltip />
@@ -35,8 +35,8 @@ export default connect(
         const loadavg = _.get(state, 'timer.loadAvgData');
         const minX = _.get(loadavg, 'data.0.timestamp');
         const maxX = _.get(loadavg.data.slice(-1), '0.timestamp');
-        const minY = _.get(loadavg, 'min');
-        const maxY = _.get(loadavg, 'max');
+        const minY = d3.min(_.get(loadavg, 'data'), (d) => (d.loadAvg)) * 0.9;
+        const maxY = d3.max(_.get(loadavg, 'data'), (d) => (d.loadAvg)) * 1.1;
         return {
             data: loadavg.data,
             minX,

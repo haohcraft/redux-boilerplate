@@ -11,6 +11,6 @@ export const getXScale = ({ maxW = 0, minX, maxX }) => (
         .range([MARGIN.left, maxW - MARGIN.left - MARGIN.right])
 );
 export const getYScale = ({ maxH = 0, minY, maxY }) => (
-    d3.scaleLinear().domain([minY, maxY])
-        .range([maxH - MARGIN.top - MARGIN.bottom, 0])
+    d3.scaleLinear().domain([minY, maxY + 0.5])
+        .range([maxH - MARGIN.top - MARGIN.bottom, 15])
 );

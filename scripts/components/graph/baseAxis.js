@@ -8,13 +8,10 @@ export default class BaseAxis extends Component {
         yScale: PropTypes.func,
         transform: PropTypes.string
     };
-    componentWillReceiveProps() {
+    componentDidUpdate() {
         this.update();
     }
     componentDidMount() {
-        /*eslint-disable*/
-        // debugger;
-        /*eslint-enable*/
         this.update();
     }
     render() {
@@ -24,7 +21,7 @@ export default class BaseAxis extends Component {
         const axis = this.getAxis();
         if (axis) {
             const el = ReactDOM.findDOMNode(this);
-            d3.select(el).call(axis).attr('class', `x ${style.axis}`);
+            d3.select(el).call(axis).attr('class', `${style.axis}`);
         }
     }
     getAxis() {

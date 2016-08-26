@@ -7,8 +7,6 @@ export default class Points extends Component {
         data: PropTypes.array,
         highlightPoint: PropTypes.func
     };
-    componentDidMount() {
-    }
     render() {
         const { data } = this.props;
         return <g className='points'>
@@ -23,7 +21,7 @@ export default class Points extends Component {
             const defaultTransform = 'translate(5, 0)';
             const meta = {
                 onMouseEnter: (evt) => {
-                    evt.target.setAttribute('transform', `translate(-${x - 4},-${y}),scale(2)`);
+                    evt.target.setAttribute('transform', `translate(-${x - 4},-${y - 1}),scale(2)`);
                     if (highlightPoint) {
                         highlightPoint({
                             ...d,

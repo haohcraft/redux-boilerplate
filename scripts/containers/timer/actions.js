@@ -13,9 +13,6 @@ export const updateLoadAvg = () => ({
             actions: RequestActionTypes,
             interval: 10,
             postRequestFunc: (resp) => {
-                /*eslint-disable*/
-                debugger;
-                /*eslint-enable*/
                 const loadAvg = resp[0].loadavgData;
                 const now = new Date().getTime();
                 const data = _.filter(loadAvg.data, (item) => {
