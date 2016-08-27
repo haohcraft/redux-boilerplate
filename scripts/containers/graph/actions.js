@@ -5,3 +5,10 @@ export const highlightPoint = (highlight) => ({
         highlight
     }
 });
+export const getHoverTime = (time) => ({
+    type: ActionTypes.HOVER_TIME,
+    payload: {
+        time
+    }
+});
+

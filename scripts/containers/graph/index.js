@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 import * as d3 from 'd3';
 import XYAxis from 'components/graph/xyAxis';
-// import MouseCatcher from 'components/graph/mouseCatcher';
 import ConnectedLineWithPoints from './lineWithPoints';
 import ConnectedTooltip from './tooltip';
+import ConnectedXIndicator from './connectedXIndicator';
+import ConnectedMouseCatcher from './connectedMouseCatcher';
 import { getXScale, getYScale } from 'components/graph/utils';
 
 const Graph = (props) => {
@@ -17,7 +18,12 @@ const Graph = (props) => {
     return <div style={{ position: 'relative' }}>
         <svg width={width} height={height}>
             <XYAxis xScale={xScale} yScale={yScale}/>
-            <ConnectedLineWithPoints xScale={xScale} yScale={yScale} data={props.data} />
+            <ConnectedXIndicator xScale={xScale} yScale={yScale} />
+            <ConnectedMouseCatcher xScale={xScale} yScale={yScale}/>
+            <ConnectedLineWithPoints
+                xScale={xScale}
+                yScale={yScale}
+                data={props.data} />
         </svg>
         <ConnectedTooltip />
     </div>;
@@ -28,7 +34,7 @@ Graph.propTypes = {
     minX: PropTypes.number,
     maxX: PropTypes.number,
     minY: PropTypes.number,
-    maxY: PropTypes.number
+    maxY: PropTypes.number,
 };
 
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import Line from 'components/graph/line';
-import Points from './points';
+import ConnectedPoints from './connectedPoints';
 
 const LineWithPoints = (props) => (
     <g>
         <Line {...props}/>
-        <Points {...props} />
+        <ConnectedPoints {...props} />
     </g>
 );
 

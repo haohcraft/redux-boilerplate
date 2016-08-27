@@ -8,6 +8,7 @@ const Line = (props) => {
             .y((d) => yScale(d.loadAvg));
     return <g transform='translate(0, 0)'>
         <path
+            style={{ pointerEvents: 'none' }}
             className={`${style.line}`}
             d={path(data)}></path>
     </g>;

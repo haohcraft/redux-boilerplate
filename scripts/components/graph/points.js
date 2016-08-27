@@ -5,6 +5,7 @@ export default class Points extends Component {
         xScale: PropTypes.func,
         yScale: PropTypes.func,
         data: PropTypes.array,
+        hoverTime: PropTypes.number,
         highlightPoint: PropTypes.func
     };
     render() {
@@ -14,14 +15,16 @@ export default class Points extends Component {
         </g>;
     }
     getPoints(dataArr) {
-        const { xScale, yScale, highlightPoint } = this.props;
+        const { xScale, yScale, highlightPoint, hoverTime } = this.props;
         return dataArr.map((d, k) => {
             const x = xScale(d.timestamp);
             const y = yScale(d.loadAvg);
-            const defaultTransform = 'translate(0, 0)';
+            const scaledTransform = `translate(-${x - 1},-${y - 1}),scale(2)`;
+            const defaultTransform = d.timestamp === hoverTime ?
+                scaledTransform : 'translate(0, 0)';
             const meta = {
                 onMouseEnter: (evt) => {
-                    evt.target.setAttribute('transform', `translate(-${x - 4},-${y - 1}),scale(2)`);
+                    evt.target.setAttribute('transform', scaledTransform);
                     if (highlightPoint) {
                         highlightPoint({
                             ...d,
