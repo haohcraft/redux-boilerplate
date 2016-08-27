@@ -14,13 +14,18 @@ export default class Points extends Component {
             {this.getPoints(data)}
         </g>;
     }
+    shouldScale(timestamp) {
+        const { hoverTime } = this.props;
+        const offsetTime = 1000 * 2;
+        return timestamp > hoverTime - offsetTime && timestamp < hoverTime + offsetTime;
+    }
     getPoints(dataArr) {
-        const { xScale, yScale, highlightPoint, hoverTime } = this.props;
+        const { xScale, yScale, highlightPoint } = this.props;
         return dataArr.map((d, k) => {
             const x = xScale(d.timestamp);
             const y = yScale(d.loadAvg);
             const scaledTransform = `translate(-${x - 1},-${y - 1}),scale(2)`;
-            const defaultTransform = d.timestamp === hoverTime ?
+            const defaultTransform = this.shouldScale(d.timestamp) ?
                 scaledTransform : 'translate(0, 0)';
             const meta = {
                 onMouseEnter: (evt) => {
