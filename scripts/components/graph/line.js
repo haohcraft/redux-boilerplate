@@ -6,7 +6,7 @@ const Line = (props) => {
     const path = d3.line()
             .x((d) => xScale(d.timestamp))
             .y((d) => yScale(d.loadAvg));
-    return <g transform='translate(5, 0)'>
+    return <g transform='translate(0, 0)'>
         <path
             className={`${style.line}`}
             d={path(data)}></path>

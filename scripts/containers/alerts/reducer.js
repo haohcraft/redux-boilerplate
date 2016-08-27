@@ -3,9 +3,8 @@ import { TWO_MINUTES, ALERT_TYPE, ActionTypes } from './constants';
 import _ from 'lodash';
 const initialState = {
     peroid: Math.floor(TWO_MINUTES / TEN_SEC),
-    threshold: 1.9,
-    alerts: [
-    ]
+    threshold: 2.5,
+    alerts: []
 };
 const calcAvg = (arr) => {
     const sum = arr.reduce((r, v) => (r + v), 0);

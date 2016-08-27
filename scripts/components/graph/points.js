@@ -18,7 +18,7 @@ export default class Points extends Component {
         return dataArr.map((d, k) => {
             const x = xScale(d.timestamp);
             const y = yScale(d.loadAvg);
-            const defaultTransform = 'translate(5, 0)';
+            const defaultTransform = 'translate(0, 0)';
             const meta = {
                 onMouseEnter: (evt) => {
                     evt.target.setAttribute('transform', `translate(-${x - 4},-${y - 1}),scale(2)`);

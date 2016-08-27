@@ -1,9 +1,9 @@
 import * as d3 from 'd3';
-const MARGIN = {
-    top: 20,
-    right: 10,
+export const MARGIN = {
+    top: 0,
+    right: 20,
     bottom: 20,
-    left: 25
+    left: 20
 };
 
 export const getXScale = ({ maxW = 0, minX, maxX }) => (
@@ -11,6 +11,6 @@ export const getXScale = ({ maxW = 0, minX, maxX }) => (
         .range([MARGIN.left, maxW - MARGIN.left - MARGIN.right])
 );
 export const getYScale = ({ maxH = 0, minY, maxY }) => (
-    d3.scaleLinear().domain([minY, maxY + 0.5])
-        .range([maxH - MARGIN.top - MARGIN.bottom, 15])
+    d3.scaleLinear().domain([minY, maxY])
+        .range([maxH - MARGIN.top - MARGIN.bottom, MARGIN.bottom])
 );

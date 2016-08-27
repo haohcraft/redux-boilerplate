@@ -7,9 +7,10 @@ import moment from 'moment';
 const Tooltip = (props) => {
     const { timestamp, loadAvg, target } = props;
     if (!target) return null;
+    const parentElDimension = target.ownerSVGElement.getBoundingClientRect();
     const pos = target.getBoundingClientRect();
-    const left = pos.left + pos.width / 2 - 10;
-    const top = pos.top + pos.height + 5;
+    const left = pos.left + pos.width / 2 - parentElDimension.left - 10;
+    const top = pos.top + pos.height - parentElDimension.top + 5;
     const tooltipStyle = {
         transform: `translate(${left}px, ${top}px)`
     };

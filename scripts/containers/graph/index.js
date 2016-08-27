@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 import * as d3 from 'd3';
 import XYAxis from 'components/graph/xyAxis';
+// import MouseCatcher from 'components/graph/mouseCatcher';
 import ConnectedLineWithPoints from './lineWithPoints';
 import ConnectedTooltip from './tooltip';
 import { getXScale, getYScale } from 'components/graph/utils';
+
 const Graph = (props) => {
     const width = 650;
     const height = 250;
@@ -33,8 +35,8 @@ Graph.propTypes = {
 export default connect(
     (state) => {
         const loadavg = _.get(state, 'timer.loadAvgData');
-        const minX = _.get(loadavg, 'data.0.timestamp');
-        const maxX = _.get(loadavg.data.slice(-1), '0.timestamp');
+        const minX = _.get(loadavg, 'data.0.timestamp') - 1000 * 5;
+        const maxX = _.get(loadavg.data.slice(-1), '0.timestamp') + 1000 * 5;
         const minY = d3.min(_.get(loadavg, 'data'), (d) => (d.loadAvg)) * 0.9;
         const maxY = d3.max(_.get(loadavg, 'data'), (d) => (d.loadAvg)) * 1.1;
         return {

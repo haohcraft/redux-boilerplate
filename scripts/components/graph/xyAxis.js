@@ -17,7 +17,7 @@ export default class XYAxis extends Component {
             <g className="axis-container" transform="translate(0,0)">
                 <XAxis xScale={xScale}
                     yScale={yScale}
-                    transform={`translate(5, ${yScale.range()[0]})`}/>
+                    transform={`translate(0, ${yScale.range()[0]})`}/>
                 <YAxis yScale={yScale}
                     xScale={xScale}
                 transform={transformYAxis}/>
