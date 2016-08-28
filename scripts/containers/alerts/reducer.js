@@ -4,7 +4,11 @@ import _ from 'lodash';
 const initialState = {
     peroid: Math.floor(TWO_MINUTES / TEN_SEC),
     threshold: 1.9,
-    alerts: []
+    alerts: [],
+    highlight: {
+        timestamp: 0,
+        type: ''
+    }
 };
 const calcAvg = (arr) => {
     const sum = arr.reduce((r, v) => (r + v), 0);
@@ -13,6 +17,11 @@ const calcAvg = (arr) => {
 
 const alertsReducer = (state = initialState, action = {}) => {
     switch (action.type) {
+        case ActionTypes.HIGHLIGHT_ALERT:
+            return {
+                ...state,
+                highlight: action.payload.highlight
+            };
         case ActionTypes.INCREASE_THRESHOLD:
             return {
                 ...state,
@@ -36,9 +45,6 @@ const alertsReducer = (state = initialState, action = {}) => {
             const latest = data.slice(-1)[0];
             const lastTwoMinLoad = data.slice(-1 - state.peroid);
             const avg = calcAvg(lastTwoMinLoad.map((load) => (load.loadAvg)));
-            /*eslint-disable*/
-            // console.log('avg: ', avg);
-            /*eslint-enable*/
             if (avg >= state.threshold) {
                 alert = {
                     load: avg,

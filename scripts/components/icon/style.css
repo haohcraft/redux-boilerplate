@@ -17,3 +17,9 @@
 .ion-arrow-left-b:before {
     content: "\f107";
 }
+.ion-record:before {
+    content: "\f21b";
+}
+.ion-minus:before {
+    content: "\f209";
+}

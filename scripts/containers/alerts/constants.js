@@ -5,6 +5,7 @@ export const ALERT_TYPE = keyMirror({
 });
 export const ActionTypes = keyMirror({
     INCREASE_THRESHOLD: null,
-    DECREASE_THRESHOLD: null
+    DECREASE_THRESHOLD: null,
+    HIGHLIGHT_ALERT: null
 });
 

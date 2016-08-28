@@ -31,3 +31,24 @@
         font-size: 14px;
     }
 }
+.labels {
+    margin-bottom: 10px;
+    .label {
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .icon-circle, .icon-line-green, .icon-line-red {
+        font-size: 12px;
+        margin-right: 10px;
+    }
+    .icon-circle {
+        color: $blue;
+    }
+    .icon-line-green {
+        color: $green;
+    }
+    .icon-line-red {
+        color: $red;
+    }
+}

@@ -1,0 +1,18 @@
+.cross-filter {
+    .title {
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        .label {}
+        .sub-label {
+            text-transform: none;
+            font-weight: 400;
+        }
+    }
+    .graph {
+        position: relative;
+        transform: 'translate(0, 0)';
+    }
+}

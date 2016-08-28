@@ -14,12 +14,17 @@ export default class RangeCover extends Component {
         const height = yScale.range()[0] - MARGIN.bottom;
         const coverStart = xScale.range()[0];
         return <g className='range-cover' transform='translate(0, 0)'>
-            <rect x={coverStart} y={MARGIN.bottom} width={start - coverStart} height={height}
-                fill="rgba(50,50,50,.75)" className="non-selected"
+            <rect className="non-selected"
+                x={coverStart} y={MARGIN.bottom}
+                width={Math.max(start - coverStart, 0)}
+                height={height}
+                fill="rgba(50,50,50,.75)"
                 onClick={::this.onClick}></rect>
-            <rect x={end} y={MARGIN.bottom} width={width - end} height={height}
-                  fill="rgba(50,50,50,.75)" className="non-selected"
-                  onClick={::this.onClick}></rect>
+            <rect className="non-selected"
+                x={end}
+                y={MARGIN.bottom} width={width - end} height={height}
+                fill="rgba(50,50,50,.75)"
+                onClick={::this.onClick}></rect>
         </g>;
     }
     onClick() {

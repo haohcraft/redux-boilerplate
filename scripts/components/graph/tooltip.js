@@ -9,7 +9,7 @@ const Tooltip = (props) => {
     const parentElDimension = target.ownerSVGElement.getBoundingClientRect();
     const pos = target.getBoundingClientRect();
     const left = pos.left + pos.width / 2 - parentElDimension.left - 10;
-    const top = pos.top + pos.height - parentElDimension.top + 5;
+    const top = pos.top + pos.height - parentElDimension.top + 30;
     const tooltipStyle = {
         transform: `translate(${left}px, ${top}px)`
     };
