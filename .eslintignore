@@ -2,6 +2,7 @@
 
 # Ignore PostCss
 postcss/**/*.js
+test/**/*.js
 
 # Ignore build folder
 build
