@@ -1,0 +1,31 @@
+.updateTime {
+    display: flex;
+    line-height: 50px;
+    .title, .number {
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .title {
+        margin-right: 15px;
+    }
+    .number {
+        display: inline-block;
+        position: relative;
+        color: $blue;
+        top: -1px;
+        font-size: 36px;
+        line-height: 15px;
+        text-decoration: underline;
+        margin: 0px 5px;
+    }
+    .decrease, .increase {
+        color: $blue;
+        font-size: 36px;
+        cursor: pointer;
+        opacity: .7;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

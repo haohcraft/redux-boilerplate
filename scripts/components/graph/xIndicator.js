@@ -1,6 +1,7 @@
 import moment from 'moment';
 import React, { PropTypes } from 'react';
 import { MARGIN } from './utils';
+import { FULL_DATE } from 'components/constants';
 const XIndicator = (props) => {
     const x = props.xScale(props.hoverTime);
     const y = props.yScale.range()[0];
@@ -30,7 +31,7 @@ const XIndicator = (props) => {
                     ${x},${y + MARGIN.bottom}
                 )`
             }>
-            {moment(props.hoverTime).format('MMM DD hh:mm:ss a')}
+            {moment(props.hoverTime).format(FULL_DATE)}
         </text>
     </g>;
 };

@@ -1,10 +1,10 @@
 import { ActionTypes, RequestActionTypes, TEN_MINUTES } from './constants';
 import _ from 'lodash';
-export const updateInterval = (interval) => ({
-    type: ActionTypes.UPDATE_INTERVAL,
-    payload: {
-        updateInterval: interval
-    }
+export const increaseInterval = () => ({
+    type: ActionTypes.INCREASE_INTERVAL
+});
+export const decreaseInterval = () => ({
+    type: ActionTypes.DECREASE_INTERVAL
 });
 export const updateLoadAvg = () => ({
     type: ActionTypes.UPDATE_LOADAVG,

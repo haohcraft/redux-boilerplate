@@ -16,7 +16,7 @@ export default class Points extends Component {
     }
     shouldScale(timestamp) {
         const { hoverTime } = this.props;
-        const offsetTime = 1000 * 2;
+        const offsetTime = 500;
         return timestamp > hoverTime - offsetTime && timestamp < hoverTime + offsetTime;
     }
     getPoints(dataArr) {

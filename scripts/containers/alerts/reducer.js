@@ -1,9 +1,9 @@
-import { RequestActionTypes, TEN_SEC } from 'containers/timer/constants';
-import { TWO_MINUTES, ALERT_TYPE, ActionTypes } from './constants';
+import { RequestActionTypes, TEN_SEC, TWO_MINUTES } from 'containers/timer/constants';
+import { ALERT_TYPE, ActionTypes } from './constants';
 import _ from 'lodash';
 const initialState = {
     peroid: Math.floor(TWO_MINUTES / TEN_SEC),
-    threshold: 2.5,
+    threshold: 1.9,
     alerts: []
 };
 const calcAvg = (arr) => {
@@ -16,10 +16,10 @@ const alertsReducer = (state = initialState, action = {}) => {
         case ActionTypes.INCREASE_THRESHOLD:
             return {
                 ...state,
-                threshold: state.threshold + 0.1
+                threshold: parseFloat((state.threshold + 0.1).toFixed(2))
             };
         case ActionTypes.DECREASE_THRESHOLD: {
-            const newThreshold = state.threshold - 0.1;
+            const newThreshold = parseFloat((state.threshold - 0.1).toFixed(2));
             if (newThreshold > 0) {
                 return {
                     ...state,

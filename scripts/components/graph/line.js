@@ -6,7 +6,7 @@ const Line = (props) => {
     const path = d3.line()
             .x((d) => xScale(d.timestamp))
             .y((d) => yScale(d.loadAvg));
-    return <g transform='translate(0, 0)'>
+    return <g className='line' transform='translate(0, 0)'>
         <path
             style={{ pointerEvents: 'none' }}
             className={`${style.line}`}

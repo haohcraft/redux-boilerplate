@@ -1,5 +1,8 @@
 var basic = {
-    'blue': 'rgb(49, 130, 189)'
+    blue: '#774aa4',
+    red: '#d63d2e',
+    green: '#5c4'
+
 };
 
 module.exports = basic;

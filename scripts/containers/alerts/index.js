@@ -20,7 +20,6 @@ const buildAlerts = (alerts) => (alerts.map((alert, k) => {
 const AlertsPane = (props) => (<div styleName="alertsPane">
     <div styleName='title'>
         <div styleName='label'>Alerts</div>
-        <div styleName="threshold">{`Threshold: ${props.threshold}`}</div>
     </div>
     {!props.alerts.length && <div>All good, no alerts.</div>}
     <div styleName='alert-list'>{buildAlerts(props.alerts)}</div>
@@ -28,12 +27,10 @@ const AlertsPane = (props) => (<div styleName="alertsPane">
 
 AlertsPane.propTypes = {
     alerts: PropTypes.array,
-    threshold: PropTypes.number
 };
 
 export default connect(
     (state) => ({
-        alerts: state.alerts.alerts,
-        threshold: state.alerts.threshold
+        alerts: state.alerts.alerts
     })
 )(CSSModules(style)(AlertsPane));

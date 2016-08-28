@@ -4,7 +4,7 @@
 }
 
 .alert-list {
-    max-height: 600px;
+    max-height: 500px;
     overflow-x: hidden;
     overflow-y: auto;
     div:not(:first-of-type) {
@@ -20,10 +20,10 @@
     font-size: 16px;
 }
 .alert-RECOVER {
-    border-left: 2px solid green;
+    border-left: 2px solid $green;
 }
 .alert-WARNING {
-    border-left: 2px solid orange;
+    border-left: 2px solid $red;
 }
 .title {
     font-size: 20px;
@@ -33,6 +33,36 @@
     justify-content: space-between;
     .label {
     }
-    .threshold {
+}
+
+.threshold {
+    display: flex;
+    line-height: 50px;
+    .title, .number {
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .title {
+        margin-right: 15px;
+    }
+    .number {
+        display: inline-block;
+        position: relative;
+        color: $blue;
+        top: -1px;
+        font-size: 36px;
+        line-height: 15px;
+        text-decoration: underline;
+        margin: 0px 5px;
+    }
+    .decrease, .increase {
+        color: $blue;
+        font-size: 36px;
+        cursor: pointer;
+        opacity: .7;
+        &:hover {
+            opacity: 1;
+        }
     }
 }

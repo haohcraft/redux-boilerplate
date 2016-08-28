@@ -1,0 +1,19 @@
+.icon {
+    display: inline-block;
+    font-family: "Ionicons";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.ion-arrow-right-b:before {
+    content: "\f10a";
+}
+.ion-arrow-left-b:before {
+    content: "\f107";
+}

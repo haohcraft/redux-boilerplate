@@ -21,8 +21,9 @@ export default class Timer extends Component {
     componentWillUnmount() {
         if (this.timer) this.timer.stop();
     }
-    componentWillReceiveProps() {
-        this.timer.restart();
+    componentWillReceiveProps(nextProps) {
+        this.timer.stop();
+        this.timer = d3.interval(this.props.updateLoadAvg, nextProps.interval);
     }
     componentDidMount() {
         this.timer = d3.interval(this.props.updateLoadAvg, this.props.interval);

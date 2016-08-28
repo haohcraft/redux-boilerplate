@@ -22,10 +22,15 @@ const initialState = {
 };
 const timerReducer = (state = initialState, action = {}) => {
     switch (action.type) {
-        case ActionTypes.UPDATE_INTERVAL:
+        case ActionTypes.INCREASE_INTERVAL:
             return {
                 ...state,
-                updateInterval: action.payload.updateInterval
+                updateInterval: state.updateInterval + 1000
+            };
+        case ActionTypes.DECREASE_INTERVAL:
+            return {
+                ...state,
+                updateInterval: Math.max(state.updateInterval - 1000, 1000)
             };
         case RequestActionTypes.LOADING:
             return {

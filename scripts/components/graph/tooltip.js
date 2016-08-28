@@ -2,8 +2,7 @@ import React, { PropTypes } from 'react';
 import CSSModules from 'react-css-modules';
 import style from './style.css';
 import moment from 'moment';
-
-
+import { TIME_FORMAT } from 'components/constants';
 const Tooltip = (props) => {
     const { timestamp, loadAvg, target } = props;
     if (!target) return null;
@@ -17,7 +16,7 @@ const Tooltip = (props) => {
     return <div styleName="tooltip" style={tooltipStyle}>
         <div styleName='time'>
             <label styleName='label'>Time:</label>
-            <div styleName='content'>{moment(timestamp).format('hh:mm:ss')}</div>
+            <div styleName='content'>{moment(timestamp).format(TIME_FORMAT)}</div>
         </div>
         <div styleName='load'>
             <label styleName='label'>LoadAvg:</label>

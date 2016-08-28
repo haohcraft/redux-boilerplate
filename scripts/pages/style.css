@@ -1,7 +1,33 @@
-.container {
-    font-family: 'Arial,sans-serif';
+.app {
+    font-family: 'Open Sans';
     width: 1000px;
     margin: 0 auto;
+}
+.title {
+    font-size: 36px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.name {
+    width: 100%;
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    background: rgba(0,0,0,.1);
+    height: 3px;
+    span {
+        background: white;
+        display: inline-block;
+        position: relative;
+        top: -18px;
+        border-left: 10px solid white;
+        border-right: 10px solid white;
+    }
+}
+.report {
     display: flex;
     justify-content: space-between;
 }
+.setting {}

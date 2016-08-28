@@ -7,6 +7,9 @@ import ConnectedLineWithPoints from './lineWithPoints';
 import ConnectedTooltip from './tooltip';
 import ConnectedXIndicator from './connectedXIndicator';
 import ConnectedMouseCatcher from './connectedMouseCatcher';
+import ConnectedRangeCover from './connectedRangeCover';
+import ConnectedRangeSelector from './connectedRangeSelector';
+import ConnectedFilteredList from './connectedFilteredList';
 import { getXScale, getYScale } from 'components/graph/utils';
 
 const Graph = (props) => {
@@ -15,7 +18,7 @@ const Graph = (props) => {
     const { minX, maxX, minY, maxY } = props;
     const xScale = getXScale({ maxW: width, minX, maxX });
     const yScale = getYScale({ maxH: height, minY, maxY });
-    return <div style={{ position: 'relative' }}>
+    return <div className='cross-filter' style={{ position: 'relative', width: '100%' }}>
         <svg width={width} height={height}>
             <XYAxis xScale={xScale} yScale={yScale}/>
             <ConnectedXIndicator xScale={xScale} yScale={yScale} />
@@ -24,8 +27,11 @@ const Graph = (props) => {
                 xScale={xScale}
                 yScale={yScale}
                 data={props.data} />
+            <ConnectedRangeCover xScale={xScale} yScale={yScale}/>
         </svg>
+        <ConnectedRangeSelector xScale={xScale} yScale={yScale}/>
         <ConnectedTooltip />
+        <ConnectedFilteredList />
     </div>;
 };
 

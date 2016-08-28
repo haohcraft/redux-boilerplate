@@ -1,0 +1,35 @@
+.list-container {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+.list {
+    max-height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.item, .head {
+    display: flex;
+    background: #eee;
+    margin-bottom: 2px;
+    .time, .load {
+        text-align: center;
+        width: 49%;
+        padding: 10px 0px;
+    }
+    .load {
+        border-left: 1px solid white;
+    }
+}
+.item {
+    &:hover {
+        cursor: pointer;
+        background: $blue;
+        color: white;
+    }
+}
+.head {
+    background: $blue;
+    color: white;
+}
