@@ -1,7 +1,7 @@
 ##Uptime
 #####by Hao Huang
 
-![snapshot](/snapshot.png)
+![snapshot](./snapshot.png)
 
 ### Demo
 ```
