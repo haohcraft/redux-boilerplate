@@ -1,6 +1,8 @@
 ##Uptime
 #####by Hao Huang
 
+![snapshot](/snapshot.png)
+
 ### Demo
 ```
 git clone -b uptime git@github.com:haohcraft/redux-boilerplate.git uptime
