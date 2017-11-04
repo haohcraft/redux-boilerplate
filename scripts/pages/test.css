@@ -1,0 +1,6 @@
+.home {
+    color: yellow;
+    .subtitle {
+        color: red;
+    }
+}
