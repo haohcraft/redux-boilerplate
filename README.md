@@ -23,7 +23,7 @@ Then open http://localhost:4000/ to launch the app
 
 
 - What technical debt would you pay if you had one more iteration?
-    1. Unite tests for the middleware, reducer and components
+    1. Unit tests for the middleware, reducer and components
     2. UI part, add features like sharing/copying gif url on each giphy component
     3. The current API layer does not handle the pagination correctly
     4. Need a cache layer to store the recent searched query on the browser side
