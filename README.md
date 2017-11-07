@@ -12,6 +12,7 @@ Then open http://localhost:4000/ to launch the app
 
 ### Questions
 - How much time did you spend?
+
     ~10 hrs: 3 hrs (setup) + 4 hrs (API layer) + 3 hrs (UI)
 
 
@@ -22,6 +23,7 @@ Then open http://localhost:4000/ to launch the app
 
 
 - What technical debt would you pay if you had one more iteration?
-    1. UI part, add features like sharing/copying gif url on each giphy component
-    2. The current API layer does not handle the pagination correctly
-    3. Need a cache layer to store the recent searched query on the browser side
+    1. Unite tests for the middleware, reducer and components
+    2. UI part, add features like sharing/copying gif url on each giphy component
+    3. The current API layer does not handle the pagination correctly
+    4. Need a cache layer to store the recent searched query on the browser side
