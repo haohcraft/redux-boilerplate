@@ -1,0 +1,30 @@
+.collection {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .loading {
+        text-align: left;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding-top: 20px;
+        padding-left: 10px;
+    }
+}
+.input {
+    position: sticky;
+    height: 50px;
+    font-size: 22px;
+    padding: 0px 20px;
+    width: 100%;
+}
+
+footer {
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    background: gray;
+    height: 30px;
+    font-size: 22px;
+    cursor: pointer;
+}

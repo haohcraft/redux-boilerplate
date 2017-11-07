@@ -1,0 +1,17 @@
+.grid {
+    padding-top: 20px;
+    .title {
+        width: 100%;
+        text-align: left;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding-bottom: 10px;
+        padding-left: 10px;
+    }
+    .list {
+        position: relative;
+        height: 100px;
+        overflow-y: visible;
+        width: 100%;
+    }
+}

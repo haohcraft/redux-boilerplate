@@ -3,13 +3,14 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import APIMiddleware from './middlewares/api';
 
 import HomePage from './pages/home';
 import rootReducer from './reducers';
 
 // eslint-disable-next-line 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const middlewares = [thunk];
+const middlewares = [thunk, APIMiddleware];
 const store = createStore(rootReducer, composeEnhancers(
     applyMiddleware(...middlewares)
 ));
@@ -27,7 +28,7 @@ if (module.hot) {
 
 render(
     <Provider store={store}>
-        <HomePage title="good 1" />
+        <HomePage />
     </Provider>,
     document.getElementById('app')
 );
