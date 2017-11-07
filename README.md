@@ -1,5 +1,9 @@
-# Just for fun
+# Giphy Search Demo
 
-- [uptime](https://github.com/haohcraft/redux-boilerplate/tree/uptime)
-- [autocomplete dropdown](https://github.com/haohcraft/redux-boilerplate/tree/dropdown)
-- [A case to use midduleware to fetch data](https://github.com/haohcraft/redux-boilerplate/tree/fetch)
+### Demo
+```
+git clone -b searchgiphy git@github.com:haohcraft/redux-boilerplate.git searchgiphy
+cd searchgiphy
+npm install
+npm start
+```
